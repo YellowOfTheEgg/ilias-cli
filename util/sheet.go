@@ -3,7 +3,7 @@ package util
 import (
 	"fmt"
 	"github.com/360EntSecGroup-Skylar/excelize"
-	"github.com/krakowski/ilias"
+	"github.com/YellowOfTheEgg/ilias"
 )
 
 func CreateCorrectionSheet(name string, corrections []ilias.Correction) *excelize.File {

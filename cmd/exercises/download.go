@@ -1,8 +1,8 @@
 package exercises
 
 import (
-	"github.com/krakowski/ilias"
-	"github.com/krakowski/ilias-cli/util"
+	"github.com/YellowOfTheEgg/ilias"
+	"github.com/YellowOfTheEgg/ilias-cli/util"
 	"github.com/spf13/cobra"
 	"io/ioutil"
 	"log"

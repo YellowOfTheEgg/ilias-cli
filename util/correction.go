@@ -3,7 +3,7 @@ package util
 import (
 	"bytes"
 	"fmt"
-	"github.com/krakowski/ilias"
+	"github.com/YellowOfTheEgg/ilias"
 	"gopkg.in/yaml.v3"
 	"io/ioutil"
 	"os"

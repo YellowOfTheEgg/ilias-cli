@@ -7,8 +7,8 @@ import (
 
     "github.com/spf13/cobra"
 
-    "github.com/krakowski/ilias"
-    "github.com/krakowski/ilias-cli/util"
+    "github.com/YellowOfTheEgg/ilias"
+    "github.com/YellowOfTheEgg/ilias-cli/util"
 )
 
 var exportGradesCommand = &cobra.Command{

@@ -8,18 +8,18 @@ import (
 	"os"
 	"runtime"
 
-	"github.com/krakowski/ilias-cli/cmd/exercises"
-	"github.com/krakowski/ilias-cli/cmd/grades"
-	"github.com/krakowski/ilias-cli/cmd/members"
-	"github.com/krakowski/ilias-cli/cmd/workspace"
-	"github.com/krakowski/ilias-cli/util"
+	"github.com/YellowOfTheEgg/ilias-cli/cmd/exercises"
+	"github.com/YellowOfTheEgg/ilias-cli/cmd/grades"
+	"github.com/YellowOfTheEgg/ilias-cli/cmd/members"
+	"github.com/YellowOfTheEgg/ilias-cli/cmd/workspace"
+	"github.com/YellowOfTheEgg/ilias-cli/util"
 	"github.com/spf13/cobra"
 )
 
 const (
-	version = "1.4.8"
-	releaseUrl = "https://api.github.com/repos/yellowoftheegg/ilias-cli/releases/latest"
-	downloadUrlTemplate = "https://github.com/yellowoftheegg/ilias-cli/releases/download/%s/ilias-%s-%s"
+	version = "v0.1.0"
+	releaseUrl = "https://api.github.com/repos/YellowOfTheEgg/ilias-cli/releases/latest"
+	downloadUrlTemplate = "https://github.com/YellowOfTheEgg/ilias-cli/releases/download/%s/ilias-%s-%s"
 )
 
 var rootCommand = &cobra.Command{

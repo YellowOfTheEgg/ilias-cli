@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/krakowski/ilias"
+	"github.com/YellowOfTheEgg/ilias"
 )
 
 func NewIliasClient() (*ilias.Client) {

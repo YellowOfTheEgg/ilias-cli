@@ -2,7 +2,7 @@ package util
 
 import (
 	"fmt"
-	"github.com/krakowski/ilias"
+	"github.com/YellowOfTheEgg/ilias"
 	"golang.org/x/crypto/ssh/terminal"
 	"log"
 	"os"

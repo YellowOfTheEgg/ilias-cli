@@ -2,8 +2,8 @@ package exercises
 
 import (
 	"fmt"
-	"github.com/krakowski/ilias"
-	"github.com/krakowski/ilias-cli/util"
+	"github.com/YellowOfTheEgg/ilias"
+	"github.com/YellowOfTheEgg/ilias-cli/util"
 	"github.com/olekukonko/tablewriter"
 	"github.com/spf13/cobra"
 	"gopkg.in/yaml.v3"
