@@ -1,10 +1,10 @@
-module github.com/YellowOfTheEgg/ilias
+module github.com/YellowOfTheEgg/ilias-cli
 
 go 1.20
 
 require (
 	github.com/360EntSecGroup-Skylar/excelize v1.4.1
-	github.com/YellowOfTheEgg/ilias-cli v0.1.0
+	github.com/YellowOfTheEgg/ilias v0.1.0
 	github.com/briandowns/spinner v1.23.0
 	github.com/gabriel-vasile/mimetype v1.4.2
 	github.com/olekukonko/tablewriter v0.0.5
@@ -19,8 +19,6 @@ require (
 	github.com/fatih/color v1.7.0 // indirect
 	github.com/gorilla/schema v1.2.0 // indirect
 	github.com/inconshreveable/mousetrap v1.1.0 // indirect
-	github.com/krakowski/ilias v0.0.0-20220523100503-5fe34c0d6bd5 // indirect
-	github.com/krakowski/ilias-cli v0.0.0-20220523100558-1d4718d20cf0 // indirect
 	github.com/mattn/go-colorable v0.1.2 // indirect
 	github.com/mattn/go-isatty v0.0.8 // indirect
 	github.com/mattn/go-runewidth v0.0.9 // indirect
