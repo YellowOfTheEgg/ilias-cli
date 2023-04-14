@@ -18,8 +18,8 @@ import (
 
 const (
 	version = "1.4.8"
-	releaseUrl = "https://api.github.com/repos/krakowski/ilias-cli/releases/latest"
-	downloadUrlTemplate = "https://github.com/krakowski/ilias-cli/releases/download/%s/ilias-%s-%s"
+	releaseUrl = "https://api.github.com/repos/yellowoftheegg/ilias-cli/releases/latest"
+	downloadUrlTemplate = "https://github.com/yellowoftheegg/ilias-cli/releases/download/%s/ilias-%s-%s"
 )
 
 var rootCommand = &cobra.Command{
