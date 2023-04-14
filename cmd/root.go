@@ -17,7 +17,7 @@ import (
 )
 
 const (
-	version = "v0.1.0"
+	version = "0.2.0"
 	releaseUrl = "https://api.github.com/repos/YellowOfTheEgg/ilias-cli/releases/latest"
 	downloadUrlTemplate = "https://github.com/YellowOfTheEgg/ilias-cli/releases/download/%s/ilias-%s-%s"
 )
