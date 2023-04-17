@@ -2,8 +2,8 @@ package workspace
 
 import (
 	"fmt"
-	"github.com/YellowOfTheEgg/ilias"
-	"github.com/YellowOfTheEgg/ilias-cli/util"
+	"ilias-cli/ilias_api"
+	"ilias-cli/util"
 	"github.com/spf13/cobra"
 	"log"
 	"os"
@@ -47,7 +47,7 @@ var workspaceUploadCommand = &cobra.Command{
 
 		// Upload comments
 		for index, correction := range corrections {
-			err := client.Exercise.UpdateComment(&ilias.CommentParams{
+			err := client.Exercise.UpdateComment(&ilias_api.CommentParams{
 				Reference:  workspace.Exercise.Reference,
 				Assignment: workspace.Exercise.Assignment,
 			}, correction)
@@ -62,7 +62,7 @@ var workspaceUploadCommand = &cobra.Command{
 		spin.StopSuccess(util.NoMessage)
 
 		spin = util.StartSpinner("Updating grades")
-		err = client.Exercise.UpdateGrades(&ilias.GradesUpdateQuery{
+		err = client.Exercise.UpdateGrades(&ilias_api.GradesUpdateQuery{
 			Reference:  workspace.Exercise.Reference,
 			Assignment: workspace.Exercise.Assignment,
 			Token:      client.User.Token,
@@ -75,20 +75,7 @@ var workspaceUploadCommand = &cobra.Command{
 
 		spin.StopSuccess(fmt.Sprintf("Updated %d entries", len(corrections)))
 
-		//spin = util.StartSpinner("Uploading table")
-		//sheet := util.CreateCorrectionSheet(workspace.Table.Name, corrections)
-		//err = client.Tables.Import(&ilias.ImportParams{
-		//	Reference: workspace.Table.Reference,
-		//	Table:     workspace.Table.Identifier,
-		//	Token:     client.User.Token,
-		//}, sheet)
-		//
-		//if err != nil {
-		//	spin.StopError(err)
-		//	os.Exit(1)
-		//}
-		//
-		//spin.StopSuccess(fmt.Sprintf("Uploaded %d entries", len(corrections)))
+
 	},
 }
 

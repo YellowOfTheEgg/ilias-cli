@@ -1,20 +1,39 @@
 This is a small console application with the primary goal of managing and
-grading exercise tasks within the ILIAS eLearning platform.
+grading exercise tasks within the ILIAS eLearning platform forked from https://github.com/krakowski/ilias-cli and from https://github.com/krakowski/ilias. Compared to original version, this one includes the possibility to change the varying part of ilias urls (which change after each ilias update) without recompiling the application.
 
 ## :wrench: &nbsp; Installation
 
 Precompiled binaries are available for Linux, macOS and Windows from
-the [GitHub Releases page](https://github.com/krakowski/ilias-cli/releases).
+the [GitHub Releases page](https://github.com/yellowoftheegg/ilias-cli/releases). 
 
 > :satellite: &nbsp; **Update Checks**
 >
-> The console application automatically checks at startup if a newer
-> version is available and notifies the user if it is present.
 
 ## :notebook: &nbsp; Workflow
 
 The console application is intended for tutors as well as for the supervising teaching staff
 and thus offers functions for distributing as well as correcting submissions.
+
+After you downloaded the zip archive, extract it. Inside the archive you will see the binary and a cmd_nodes.yml. The .yml file contains the cmdNode parameters for different urls in ilias. You have to change them after an update of ilias.
+
+## How to get cmdNodes for cmd_nodes.yml
+There are six urls to update, all of which have the same parameter (called cmdNode) but with a different values. Below is a list of the individual locations of the values of the cmdNode parameter:
+
+
+- auth_login: Login-Page
+   - CmdNode value can be found in the html of the login form
+- exercise_comment: Lecture X =>Exercises => Submissions
+   - The value of the cmdNode is in the addressbar
+- exercise_download => Lecture X =>Exercises => Submissions: 
+   1. Go to one of the submissions and click "Actions"
+   2. A button for the download of the submission will appear.
+   3. Check html of this button to get cmdNode parameter.
+- exercise_grades: Lecture X =>Exercises => Submissions: 
+   - The value of the cmdNode is in the addressbar
+- exercise_list: Lecture X =>Exercises => Submissions:
+   - The value of the cmdNode is in the addressbar
+- member_list: Lecture X => Members:
+   - The value of the cmdNode is in the addressbar
 
 ### Teaching staff
 

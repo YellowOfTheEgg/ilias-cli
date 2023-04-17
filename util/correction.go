@@ -3,7 +3,7 @@ package util
 import (
 	"bytes"
 	"fmt"
-	"github.com/YellowOfTheEgg/ilias"
+	"ilias-cli/ilias_api"
 	"gopkg.in/yaml.v3"
 	"io/ioutil"
 	"os"
@@ -28,8 +28,8 @@ type TemplateParams struct {
 }
 
 type CorrectionStats struct {
-	Corrected	[]ilias.Correction
-	Pending		[]ilias.Correction
+	Corrected	[]ilias_api.Correction
+	Pending		[]ilias_api.Correction
 }
 
 func WriteCorrectionTemplate(path string, params TemplateParams) error {
@@ -53,13 +53,13 @@ func WriteCorrectionTemplate(path string, params TemplateParams) error {
 	return nil
 }
 
-func ReadCorrection(path string) (*ilias.Correction, error) {
+func ReadCorrection(path string) (*ilias_api.Correction, error) {
 	file, err := ioutil.ReadFile(path)
 	if err != nil {
 		return nil, fmt.Errorf("%s: %v", path, err)
 	}
 
-	correction := ilias.Correction{}
+	correction := ilias_api.Correction{}
 	err = yaml.Unmarshal(file, &correction)
 	if err != nil {
 		return nil, fmt.Errorf("%s: %v", path, err)
@@ -68,8 +68,8 @@ func ReadCorrection(path string) (*ilias.Correction, error) {
 	return &correction, nil
 }
 
-func ReadCorrections(members []string) ([]ilias.Correction, error) {
-	var corrections []ilias.Correction
+func ReadCorrections(members []string) ([]ilias_api.Correction, error) {
+	var corrections []ilias_api.Correction
 	for _, member := range members {
 		path := filepath.Join(member, CorrectionFilename)
 		correction, err := ReadCorrection(path)
@@ -83,7 +83,7 @@ func ReadCorrections(members []string) ([]ilias.Correction, error) {
 	return corrections, nil
 }
 
-func GetCorrectionStats(corrections []ilias.Correction) CorrectionStats {
+func GetCorrectionStats(corrections []ilias_api.Correction) CorrectionStats {
 	stats := CorrectionStats{}
 	for _, correction := range corrections {
 		if correction.Corrected {
@@ -96,7 +96,7 @@ func GetCorrectionStats(corrections []ilias.Correction) CorrectionStats {
 	return stats
 }
 
-func FilterCorrections(values []ilias.Correction, test func(correction ilias.Correction) bool) (ret []ilias.Correction) {
+func FilterCorrections(values []ilias_api.Correction, test func(correction ilias_api.Correction) bool) (ret []ilias_api.Correction) {
 	for _, s := range values {
 		if test(s) {
 			ret = append(ret, s)

@@ -3,10 +3,10 @@ package util
 import (
 	"fmt"
 	"github.com/360EntSecGroup-Skylar/excelize"
-	"github.com/YellowOfTheEgg/ilias"
+	"ilias-cli/ilias_api"
 )
 
-func CreateCorrectionSheet(name string, corrections []ilias.Correction) *excelize.File {
+func CreateCorrectionSheet(name string, corrections []ilias_api.Correction) *excelize.File {
 	file := excelize.NewFile()
 	file.SetSheetName("Sheet1", name)
 	file.SetCellValue(name, "A1", "Benutzer")

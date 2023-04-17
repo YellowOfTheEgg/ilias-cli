@@ -1,8 +1,8 @@
 package exercises
 
 import (
-	"github.com/YellowOfTheEgg/ilias"
-	"github.com/YellowOfTheEgg/ilias-cli/util"
+	"ilias-cli/ilias_api"
+	"ilias-cli/util"
 	"github.com/spf13/cobra"
 	"io/ioutil"
 	"log"
@@ -32,7 +32,7 @@ var exerciseDownloadCommand = &cobra.Command{
 		spin := util.StartSpinner("Downloading submission")
 
 		// Download next submission
-		submission, err := client.Exercise.Download(&ilias.DownloadParams{
+		submission, err := client.Exercise.Download(&ilias_api.DownloadParams{
 			Reference:  args[0],
 			Assignment: args[1],
 			Member:     args[2],

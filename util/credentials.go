@@ -2,7 +2,7 @@ package util
 
 import (
 	"fmt"
-	"github.com/YellowOfTheEgg/ilias"
+	"ilias-cli/ilias_api"
 	"golang.org/x/crypto/ssh/terminal"
 	"log"
 	"os"
@@ -15,7 +15,7 @@ const (
 	envPassword = "ILIAS_PASS"
 )
 
-func GetCredentials() *ilias.Credentials {
+func GetCredentials() *ilias_api.Credentials {
 
 	// Get the username
 	username, present := os.LookupEnv(envUser)
@@ -39,7 +39,7 @@ func GetCredentials() *ilias.Credentials {
 		fmt.Fprintln(os.Stderr)
 	}
 
-	return &ilias.Credentials{
+	return &ilias_api.Credentials{
 		Username: strings.ToLower(username),
 		Password: password,
 	}

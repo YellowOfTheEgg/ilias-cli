@@ -2,8 +2,8 @@ package exercises
 
 import (
 	"fmt"
-	"github.com/YellowOfTheEgg/ilias"
-	"github.com/YellowOfTheEgg/ilias-cli/util"
+	"ilias-cli/ilias_api"
+	"ilias-cli/util"
 	"github.com/olekukonko/tablewriter"
 	"github.com/spf13/cobra"
 	"gopkg.in/yaml.v3"
@@ -48,7 +48,7 @@ func distribute(exerciseId string, assignmentId string) {
 	client := util.NewIliasClient()
 
 	spin := util.StartSpinner("Fetching submissions")
-	submissions, err := client.Exercise.List(&ilias.ListParams{
+	submissions, err := client.Exercise.List(&ilias_api.ListParams{
 		Reference:    exerciseId,
 		Assignment:   assignmentId,
 		IncludeEmpty: false,
@@ -87,7 +87,7 @@ func distribute(exerciseId string, assignmentId string) {
 	}
 }
 
-func assignSubmissions(tutors []Tutor, submissions []ilias.SubmissionMeta) map[string][]string {
+func assignSubmissions(tutors []Tutor, submissions []ilias_api.SubmissionMeta) map[string][]string {
 	rand.Seed(seed)
 	submissionCount := len(submissions)
 	totalHours := sumHours(tutors)

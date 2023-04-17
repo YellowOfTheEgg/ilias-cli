@@ -1,0 +1,17 @@
+- cmdName: auth_login
+  cmdNode: 11g
+
+- cmdName: exercise_comment
+  cmdNode: c8:o6:c9
+
+- cmdName: exercise_download
+  cmdNode: c8:o6:c9:cn
+
+- cmdName: exercise_grades
+  cmdNode: c8:o6:c9
+
+- cmdName: exercise_list
+  cmdNode: c8:o6:c9
+
+- cmdName: members_list
+  cmdNode: y4:n0:97

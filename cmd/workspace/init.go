@@ -3,8 +3,8 @@ package workspace
 import (
 	"errors"
 	"fmt"
-	"github.com/YellowOfTheEgg/ilias"
-	"github.com/YellowOfTheEgg/ilias-cli/util"
+	"ilias-cli/ilias_api"
+	"ilias-cli/util"
 	"github.com/spf13/cobra"
 	"github.com/gabriel-vasile/mimetype"
 	"io/ioutil"
@@ -43,7 +43,7 @@ var workspaceInitCommand = &cobra.Command{
 			}
 
 			// Download next submission
-			submission, err := client.Exercise.Download(&ilias.DownloadParams{
+			submission, err := client.Exercise.Download(&ilias_api.DownloadParams{
 				Reference:  workspace.Exercise.Reference,
 				Assignment: workspace.Exercise.Assignment,
 				Member:     memberId,

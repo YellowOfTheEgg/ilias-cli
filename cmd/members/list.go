@@ -4,8 +4,8 @@ import (
 	"encoding/csv"
 	"encoding/json"
 	"fmt"
-	"github.com/YellowOfTheEgg/ilias"
-	"github.com/YellowOfTheEgg/ilias-cli/util"
+	"ilias-cli/ilias_api"
+	"ilias-cli/util"
 	"github.com/olekukonko/tablewriter"
 	"github.com/spf13/cobra"
 	"log"
@@ -29,7 +29,7 @@ var membersListCommand = &cobra.Command{
 		client := util.NewIliasClient()
 
 		spin := util.StartSpinner("Fetching course members")
-		members, err := client.Members.List(&ilias.MemberParams{ Reference: args[0] })
+		members, err := client.Members.List(&ilias_api.MemberParams{ Reference: args[0] })
 
 		if err != nil {
 			spin.StopError(err)
@@ -50,7 +50,7 @@ var membersListCommand = &cobra.Command{
 	},
 }
 
-func printJson(members []ilias.CourseMember) {
+func printJson(members []ilias_api.CourseMember) {
 	type member struct {
 		Usernames []string `json:"usernames"`
 	}
@@ -68,13 +68,13 @@ func printJson(members []ilias.CourseMember) {
 	fmt.Println(string(buffer))
 }
 
-func printIds(members []ilias.CourseMember) {
+func printIds(members []ilias_api.CourseMember) {
 	for _, member := range members {
 		fmt.Println(member.Username)
 	}
 }
 
-func printCsv(members []ilias.CourseMember)  {
+func printCsv(members []ilias_api.CourseMember)  {
 	writer := csv.NewWriter(os.Stdout)
 	writer.Write([]string{"ID", "Kennung", "Vorname", "Nachname", "Rolle"})
 
@@ -85,7 +85,7 @@ func printCsv(members []ilias.CourseMember)  {
 	writer.Flush()
 }
 
-func printTable(members []ilias.CourseMember) {
+func printTable(members []ilias_api.CourseMember) {
 	table := tablewriter.NewWriter(os.Stdout)
 	table.SetHeader([]string{"ID", "Kennung", "Vorname", "Nachname", "Rolle"})
 

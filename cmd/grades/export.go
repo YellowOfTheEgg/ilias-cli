@@ -7,8 +7,8 @@ import (
 
     "github.com/spf13/cobra"
 
-    "github.com/YellowOfTheEgg/ilias"
-    "github.com/YellowOfTheEgg/ilias-cli/util"
+    "ilias-cli/ilias_api"
+    "ilias-cli/util"
 )
 
 var exportGradesCommand = &cobra.Command{
@@ -22,7 +22,7 @@ var exportGradesCommand = &cobra.Command{
 
 
         spin := util.StartSpinner("Fetching submissions")
-        grades, err := client.Exercise.Export(&ilias.GradesExportQuery{
+        grades, err := client.Exercise.Export(&ilias_api.GradesExportQuery{
             Reference:args[0],
         })
 
@@ -37,7 +37,7 @@ var exportGradesCommand = &cobra.Command{
     },
 }
 
-func printCsv(grades []ilias.Grading)  {
+func printCsv(grades []ilias_api.Grading)  {
     writer := csv.NewWriter(os.Stdout)
     writer.Write(grades[0].ToHeader())
 

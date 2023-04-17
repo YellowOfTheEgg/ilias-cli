@@ -2,7 +2,7 @@ package workspace
 
 import (
 	"fmt"
-	"github.com/YellowOfTheEgg/ilias-cli/util"
+	"ilias-cli/util"
 	"github.com/spf13/cobra"
 	"os"
 )
